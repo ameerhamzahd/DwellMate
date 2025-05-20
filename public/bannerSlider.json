@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "title": "Smart Matchmaking for Modern Living",
+        "subtitle": "Harness intelligent filtering to find roommates who match your lifestyle, habits, and preferences.",
+        "image": "https://res.cloudinary.com/dgt4ygjhp/image/upload/v1747736146/slider01_fiwitk.png"
+    },
+    {
+        "id": "2",
+        "title": "Post & Manage Your Listings Seamlessly",
+        "subtitle": "Easily list your room, track inquiries, and communicate with potential roommates — all in one place.",
+        "image": "https://res.cloudinary.com/dgt4ygjhp/image/upload/v1747736147/slider04_fjhm9f.png"
+    },
+    {
+        "id": "3",
+        "title": "Designed for Safe, Harmonious Co-Living",
+        "subtitle": "We help build positive co-living experiences by connecting people with shared values and expectations.",
+        "image": "https://res.cloudinary.com/dgt4ygjhp/image/upload/v1747737258/slider03_vnd7pi.jpg"
+    }
+]

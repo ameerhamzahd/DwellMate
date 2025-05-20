@@ -36,8 +36,8 @@ const Navbar = () => {
     };
 
     return (
-        <div className='py-5'>
-            <nav className="top-0 z-50 navbar bg-white/30 backdrop-blur-lg shadow-sm max-w-7xl mx-auto rounded-full">
+        <div className='fixed top-0 z-50 w-full flex justify-center'>
+            <nav className="navbar bg-white shadow-sm max-w-11/12 w-full mx-auto rounded-full px-4 my-5">
                 <div className="navbar-start">
                     <div className="dropdown relative">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -45,7 +45,7 @@ const Navbar = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-white rounded-box w-52 space-y-1 text-gray-800">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 space-y-1 text-gray-800">
                             <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
                             <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
                             <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
@@ -68,10 +68,10 @@ const Navbar = () => {
                                             </ul>
                                         </div>
                                     ) : (<>
-                                        <Link to="/login" className="btn bg-transparent px-6 ml-2 flex items-center gap-2">
+                                        <Link to="/login" className="btn bg-transparent border-primary px-6 ml-2 flex items-center gap-2">
                                             <TbLogin2 size={20} /> Login
                                         </Link>
-                                        <Link to="/register" className="btn bg-transparent px-6 ml-2 flex items-center gap-2">
+                                        <Link to="/register" className="btn bg-transparent border-primary  px-6 ml-2 flex items-center gap-2">
                                             <MdSpaceDashboard size={20} /> Register
                                         </Link></>
                                     )
@@ -87,7 +87,7 @@ const Navbar = () => {
 
 
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu-horizontal px-1 gap-5">
+                    <ul className="menu-horizontal px-1 gap-5 font-medium">
                         <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
                         <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
                         <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
@@ -108,7 +108,7 @@ const Navbar = () => {
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-white rounded-box w-52 text-gray-800 gap-2">
-                                    <li className='flex justify-center items-center italic font-bold'><Link to="/profile">{user.displayName}</Link></li>
+                                    <li className='flex justify-center items-center italic font-bold'><Link to="/my-listings">{user.displayName}</Link></li>
                                     <li><Link onClick={handleLogout} className='flex items-center justify-center gap-1'><TbLogout2 size={20} />Logout</Link></li>
                                 </ul>
                             </div>
@@ -143,10 +143,10 @@ const Navbar = () => {
                             </button>
 
                             <div className='flex px-3 gap-3'>
-                                <Link to="/login" className="btn bg-transparent px-6 flex items-center gap-2">
+                                <Link to="/login" className="btn bg-transparent hover:border-primary px-6 flex items-center gap-2">
                                     <TbLogin2 size={20} /> Login
                                 </Link>
-                                <Link to="/register" className="btn bg-transparent px-6 flex items-center gap-2">
+                                <Link to="/register" className="btn bg-transparent hover:border-primary px-6 flex items-center gap-2">
                                     <MdSpaceDashboard size={20} /> Register
                                 </Link>
                             </div>
