@@ -10,10 +10,10 @@ const Mission = () => {
 
     const [visible, setVisible] = useState(false);
 
-  useEffect(() => {
-    // Show elements when component mounts
-    setVisible(true);
-  }, []);
+    useEffect(() => {
+        // Show elements when component mounts
+        setVisible(true);
+    }, []);
 
     return (
         <div>
@@ -76,7 +76,7 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30}/></span>
+                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">major cities worldwide</div>
                         </div>
@@ -96,7 +96,7 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl font-bold ml-1 text-primary"><FaPlus size={30}/></span>
+                                <span className="text-5xl font-bold ml-1 text-primary"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">active monthly users</div>
                         </div>
@@ -116,7 +116,7 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30}/></span>
+                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">roommate matches made</div>
                         </div>

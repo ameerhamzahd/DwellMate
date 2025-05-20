@@ -9,6 +9,7 @@ import 'swiper/css/autoplay';
 import { FaChevronRight } from "react-icons/fa6";
 
 const BannerSlider = () => {
+
   const [bannerSliders, setBannerSliders] = useState([]);
 
   useEffect(() => {
@@ -32,7 +33,8 @@ const BannerSlider = () => {
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        {bannerSliders.map((bannerSlider) => {
+        {
+        bannerSliders.map((bannerSlider) => {
           const titleWords = bannerSlider.title.split(' ');
           const staticWords = titleWords.slice(0, -2).join(' ');
           const dynamicWords = titleWords.slice(-2).join(' ');
