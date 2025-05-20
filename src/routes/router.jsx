@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import AddToFindRoommate from "../pages/AddToFindRoommate/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing/BrowseListing";
 import MyListings from "../pages/MyListings/MyListings";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter(
     [
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/register",
-                    Component: Login
+                    Component: Register
                 },
                 {
                     path: "/add-to-find-roommate",

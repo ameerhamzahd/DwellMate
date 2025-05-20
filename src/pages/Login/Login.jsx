@@ -118,7 +118,7 @@ const Login = () => {
             <Helmet>
                 <title>DwellMate | Login</title>
             </Helmet>
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from white to via-violet-300 py-30">
+            <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-white to-violet-100 py-30">
                 <div className=" max-w-md p-8 rounded-2xl shadow-2xl backdrop-blur-md bg-white/10 border border-white/30 mx-auto w-11/12">
                     <h2 className="text-3xl font-bold text-black text-center mb-6">Login</h2>
 
