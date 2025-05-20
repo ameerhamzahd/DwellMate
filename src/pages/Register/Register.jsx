@@ -80,7 +80,7 @@ const Register = () => {
         }
 
         if (!terms) {
-            toast.error(`Please accept our Terms and Conditions.`, {
+            toast.error(`Please accept our Terms & Conditions.`, {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -256,7 +256,7 @@ const Register = () => {
                         </div>
 
                         <div className='space-y-3 mt-5'>
-                            <button onClick={handleGoogleLogin} className='btn w-full rounded-full btn-outline btn-primary'><FaGoogle size={15} /> Login with Google</button>
+                            <button onClick={handleGoogleLogin} className='btn w-full rounded-full btn-outline btn-primary'><FaGoogle size={15} />Login with Google</button>
                         </div>
                     </form>
 
