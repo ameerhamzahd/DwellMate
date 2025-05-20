@@ -11,6 +11,7 @@ import img2 from "../../assets/head-of-matching-algo.png"
 import img3 from "../../assets/user-experience-director.png"
 
 const TestimonialAndTeamSection = () => {
+    
     const [testimonialMembers, setTestimonialMembers] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -22,18 +23,51 @@ const TestimonialAndTeamSection = () => {
     }, []);
 
     const partnerLogos = [
-        { name: "APARTMENTS.COM", icon: <PiBuildingApartmentFill /> },
-        { name: "ZILLOW", icon: <SiZillow /> },
-        { name: "CAMPUS HOUSING", icon: <RiGraduationCapFill /> },
-        { name: "ROOM BUDDY", icon: <FaUserFriends /> },
-        { name: "RENTAL HUB", icon: <IoKeySharp /> },
-        { name: "HOME SHARE", icon: <IoHomeSharp /> }
+        {
+            name: "apartments.com",
+            icon: <PiBuildingApartmentFill />
+        },
+        {
+            name: "Zillow",
+            icon: <SiZillow />
+        },
+        {
+            name: "CampusHousing",
+            icon: <RiGraduationCapFill />
+        },
+        {
+            name: "RoomBuddy",
+            icon: <FaUserFriends />
+        },
+        {
+            name: "RentalHub",
+            icon: <IoKeySharp />
+        },
+        {
+            name: "HomeShare",
+            icon: <IoHomeSharp />
+        }
     ];
 
     const teamMembers = [
-        { id: 1, name: "Derek Daniels", position: "Co-Founder & CEO", image: img1 },
-        { id: 2, name: "Andrew Sanders", position: "Head of Matching Algorithm", image: img2 },
-        { id: 3, name: "Floyd Miller", position: "User Experience Director", image: img3 }
+        {
+            id: 1,
+            name: "Derek Daniels",
+            position: "Co-Founder & CEO",
+            image: img1
+        },
+        {
+            id: 2,
+            name: "Andrew Sanders",
+            position: "Head of Matching Algorithm",
+            image: img2
+        },
+        {
+            id: 3,
+            name: "Floyd Miller",
+            position: "User Experience Director",
+            image: img3
+        }
     ];
 
     return (
@@ -117,7 +151,7 @@ const TestimonialAndTeamSection = () => {
                         <div key={member.id} className="relative group">
                             <div className="relative overflow-hidden rounded-lg shadow-lg hover:cursor-pointer">
                                 <div className="absolute top-0 right-0 w-8 h-8 bg-white rounded-bl-lg z-10 flex items-center justify-center">
-                                    <span className="text-xs"><MdArrowOutward size={25}/></span>
+                                    <span className="text-xs"><MdArrowOutward size={25} /></span>
                                 </div>
                                 <img
                                     src={member.image}
