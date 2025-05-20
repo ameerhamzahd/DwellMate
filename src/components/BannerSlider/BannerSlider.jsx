@@ -40,11 +40,9 @@ const BannerSlider = () => {
           return (
             <SwiperSlide key={bannerSlider.id}>
               <div
-                className="hero min-h-screen"
+                className="hero h-[1000px]"
                 style={{
-                  backgroundImage: `url(${bannerSlider.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  backgroundImage: `url(${bannerSlider.image})`
                 }}
               >
                 <div className="hero-overlay bg-opacity-60"></div>
@@ -52,7 +50,7 @@ const BannerSlider = () => {
                   <div className="max-w-4xl">
                     <h1 className="mb-5 text-5xl md:text-7xl font-bold leading-tight">
                       {staticWords}{' '}
-                      <span className="text-secondary">
+                      <span className="text-violet-300">
                         <Typewriter
                           words={[dynamicWords]}
                           loop={true}
