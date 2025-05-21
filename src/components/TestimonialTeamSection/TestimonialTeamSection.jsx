@@ -75,7 +75,6 @@ const TestimonialAndTeamSection = () => {
             {/* Testimonials */}
             <div className="container mx-auto px-4 max-w-5xl text-center mb-16">
                 <div className="text-lg md:text-xl font-medium mb-1 flex justify-center">
-                    <span className="inline-block w-1 h-1 rounded-full bg-gray-500 self-center mr-2"></span>
                     <span className="text-gray-500">TESTIMONIALS</span>
                 </div>
 
