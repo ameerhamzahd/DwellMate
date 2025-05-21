@@ -52,19 +52,19 @@ const TestimonialAndTeamSection = () => {
     const teamMembers = [
         {
             id: 1,
-            name: "Derek Daniels",
+            name: "Hamza Farooq",
             position: "Co-Founder & CEO",
             image: img1
         },
         {
             id: 2,
-            name: "Andrew Sanders",
+            name: "Idris Malik",
             position: "Head of Matching Algorithm",
             image: img2
         },
         {
             id: 3,
-            name: "Floyd Miller",
+            name: "Fahad Qureshi",
             position: "User Experience Director",
             image: img3
         }
@@ -84,7 +84,7 @@ const TestimonialAndTeamSection = () => {
                         <div className="carousel w-full">
                             <div className="carousel-item relative w-full">
                                 <div className="flex flex-col items-center justify-center w-full px-4 md:px-16">
-                                    <blockquote className="text-2xl md:text-3xl font-medium text-center mb-6 text-primary">
+                                    <blockquote className="text-2xl md:text-3xl font-medium text-center mb-6 text-primary px-8">
                                         "{testimonialMembers[activeIndex].quote}"
                                     </blockquote>
 
@@ -151,7 +151,7 @@ const TestimonialAndTeamSection = () => {
                         <div key={member.id} className="relative group">
                             <div className="relative overflow-hidden rounded-lg shadow-lg hover:cursor-pointer">
                                 <div className="absolute top-0 right-0 w-8 h-8 bg-white rounded-bl-lg z-10 flex items-center justify-center">
-                                    <span className="text-xs"><MdArrowOutward size={25} /></span>
+                                    <span className="text-xs hover:scale-110"><MdArrowOutward size={25} /></span>
                                 </div>
                                 <img
                                     src={member.image}

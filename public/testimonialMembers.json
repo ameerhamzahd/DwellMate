@@ -1,20 +1,20 @@
 [
     {
         "id": "1",
-        "quote": "I found the perfect roommate through this platform! The matching system is so accurate, and the verification process made me feel safe. Would definitely recommend to anyone looking for a compatible roommate!",
-        "name": "Emma Watson",
+        "quote": "Found the perfect roommate here! The matching was spot-on, and the verification made me feel secure. Highly recommend!",
+        "name": "Ayaan Khan",
         "position": "GRADUATE STUDENT / BOSTON"
     },
     {
         "id": "2",
         "quote": "After struggling to find a reliable roommate for months, this service matched me with someone who shares my values and lifestyle in just a week!",
-        "name": "Michael Rodriguez",
+        "name": "Zayd Rahman",
         "position": "YOUNG PROFESSIONAL / CHICAGO"
     },
     {
         "id": "3",
         "quote": "The verification system gave me peace of mind when looking for a roommate in a new city. The platform made the whole process stress-free.",
-        "name": "Sarah Johnson",
+        "name": "Ayesha Siddique",
         "position": "REMOTE WORKER / AUSTIN"
     }
 ]

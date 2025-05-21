@@ -91,36 +91,14 @@ const Login = () => {
             })
     };
 
-    const handleForgotPassword = () => {
-        const email = emailRef.current.value;
-
-        if (!email) {
-            toast.error(`Please enter your email first.`, {
-                position: "top-right",
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-            });
-
-            return;
-        }
-
-        navigate(`/forgot-password?email=${encodeURIComponent(email)}`);
-    };
-
     return (
         <div>
             <Helmet>
                 <title>DwellMate | Login</title>
             </Helmet>
-            <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-white to-violet-100 py-30">
-                <div className=" max-w-md p-8 rounded-2xl shadow-2xl backdrop-blur-md bg-white/10 border border-white/30 mx-auto w-11/12">
-                    <h2 className="text-3xl font-bold text-black text-center mb-6">Login</h2>
+            <div className="flex justify-center items-center min-h-screen bg-linear-to-r from-white to-violet-100 py-30">
+                <div className="p-8 mx-auto w-11/12 max-w-md rounded-2xl border shadow-2xl backdrop-blur-md bg-white/10 border-white/30">
+                    <h2 className="mb-6 text-3xl font-bold text-center text-black">Login</h2>
 
                     <form onSubmit={handleLogin} className="space-y-6">
                         <div className="relative">
@@ -132,7 +110,7 @@ const Login = () => {
                                 required
                                 onFocus={() => setEmailFocused(true)}
                                 onBlur={(event) => setEmailFocused(event.target.value !== '')}
-                                className="w-full pl-10 pr-10 pt-6 pb-2 bg-white/20 text-black placeholder-transparent focus:outline-none border-b border-black focus:border-primary"
+                                className="pt-6 pr-10 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
                             />
                             <label
                                 className={`absolute left-10 text-black transition-all duration-300 ${emailFocused ? 'top-1 text-xs' : 'top-4 text-sm'
@@ -150,7 +128,7 @@ const Login = () => {
                                 required
                                 onFocus={() => setPasswordFocused(true)}
                                 onBlur={(event) => setPasswordFocused(event.target.value !== '')}
-                                className="w-full pl-10 pr-10 pt-6 pb-2 bg-white/20 text-black placeholder-transparent focus:outline-none border-b border-black focus:border-primary"
+                                className="pt-6 pr-10 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
                             />
                             <label
                                 className={`absolute left-10 text-black transition-all duration-300 ${passwordFocused ? 'top-1 text-xs' : 'top-4 text-sm'
@@ -166,37 +144,34 @@ const Login = () => {
                             </span>
                         </div>
 
-                        <div className="flex items-center justify-between text-sm text-black font-semibold">
-                            <label className="flex items-center gap-2 cursor-pointer">
+                        <div className="flex justify-between items-center text-sm font-semibold text-black">
+                            <label className="flex gap-2 items-center cursor-pointer">
                                 <input type="checkbox" className="checkbox checkbox-xs checkbox-primary" />
                                 Remember Me
                             </label>
-                            <Link onClick={handleForgotPassword} className="hover:underline cursor-pointer text-primary">
-                                Forgot Password?
-                            </Link>
                         </div>
 
-                        <div className="form-control mt-4">
-                            <button type='submit' className="btn w-full rounded-full btn-neutral transition-all duration-300">
+                        <div className="mt-4 form-control">
+                            <button type='submit' className="w-full rounded-full transition-all duration-300 btn btn-neutral">
                                 Login <TbLogin2 size={20} />
                             </button>
                         </div>
 
                         <div className="relative my-5">
-                            <div className="absolute inset-0 flex items-center">
+                            <div className="flex absolute inset-0 items-center">
                                 <div className="w-full border-t border-gray-300"></div>
                             </div>
-                            <div className="relative flex justify-center text-sm">
-                                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                            <div className="flex relative justify-center text-sm">
+                                <span className="px-2 text-gray-500 bg-white">Or continue with</span>
                             </div>
                         </div>
 
-                        <div className='space-y-3 mt-5'>
-                            <button onClick={handleGoogleLogin} className='btn w-full rounded-full btn-outline btn-primary'><FaGoogle size={15} /> Login with Google</button>
+                        <div className='mt-5 space-y-3'>
+                            <button onClick={handleGoogleLogin} className='w-full rounded-full btn btn-outline btn-primary'><FaGoogle size={15} /> Login with Google</button>
                         </div>
                     </form>
 
-                    <p className="text-black text-sm text-center mt-6 font-semibold">
+                    <p className="mt-6 text-sm font-semibold text-center text-black">
                         Don’t have an account?{' '}
                         <Link to="/register" className="cursor-pointer text-primary hover:underline">
                             Register
