@@ -57,15 +57,6 @@ const BrowseListing = () => {
                             </div>
                         )}
                     </div>
-
-                    {/* Load More Section */}
-                    {properties.length > 0 && (
-                        <div className="text-center py-15">
-                            <button className="btn btn-outline btn-neutral btn-lg">
-                                Load More
-                            </button>
-                        </div>
-                    )}
                 </div>
             </div>
         </div>

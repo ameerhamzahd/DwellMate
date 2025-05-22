@@ -7,6 +7,7 @@ import AddToFindRoommate from "../pages/AddToFindRoommate/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing/BrowseListing";
 import MyListings from "../pages/MyListings/MyListings";
 import Register from "../pages/Register/Register";
+import PropertyDetails from "../components/PropertyDetails/PropertyDetails";
 
 const router = createBrowserRouter(
     [
@@ -39,6 +40,11 @@ const router = createBrowserRouter(
                 {
                     path: "/my-listings",
                     Component: MyListings
+                },
+                {
+                    path: "properties/:id",
+                    Component: PropertyDetails,
+                    loader: () => fetch("http://localhost:3000/properties")
                 },
             ]
         }

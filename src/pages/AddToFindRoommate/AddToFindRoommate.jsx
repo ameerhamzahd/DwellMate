@@ -124,7 +124,7 @@ const AddToFindRoommate = () => {
                             <InputField icon={<FaEnvelope />} label="User Email" value={user?.email} name="email" readOnly />
 
                             {/* Read-Only Name */}
-                            <InputField icon={<FaUser />} label="User Name" value={user?.displayName} name="Name" readOnly />
+                            <InputField icon={<FaUser />} label="User Name" value={user?.displayName} name="name" readOnly />
                         </div>
 
                         {/* Submit */}
