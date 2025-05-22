@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useLoaderData, useParams } from 'react-router';
 
@@ -16,6 +17,10 @@ const PropertyDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>DwellMate | Accommodation Insights</title>
+            </Helmet>
+            
             <div className="">
                 {/* Header */}
                 <div className="space-y-3 text-center rounded-2xl pt-30 lg:space-y-5">
@@ -53,7 +58,7 @@ const PropertyDetails = () => {
                             
                             <div className='flex flex-col gap-4 justify-center pb-3 text-center border-b-2 border-gray-400 border-dashed md:text-left'>
                                 <p className="text-gray-700 text-md"><strong>Room Type:</strong> {roomType}</p>
-                                <p className="text-sm text-gray-700"><strong>Lifestyle:</strong> {lifestyle}</p>
+                                <p className="text-gray-700 text-md"><strong>Lifestyle:</strong> {lifestyle}</p>
                                 <p className="text-gray-700 text-md"><strong>Contact:</strong> {contact}</p>
                                 <p className="text-gray-700 text-md"><strong>Email:</strong> {email}</p>
                                 <p className="text-gray-700 text-md"><strong>Posted By:</strong> {name}</p>

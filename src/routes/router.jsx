@@ -39,7 +39,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/my-listings",
-                    Component: MyListings,
+                    Component: MyListings
                 },
                 {
                     path: "properties/:id",
