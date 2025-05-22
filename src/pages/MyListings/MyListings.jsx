@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaBed, FaClipboardList, FaDollarSign, FaEnvelope, FaImage, FaUser } from 'react-icons/fa6';
 import { FaCheckCircle, FaInfoCircle, FaMapMarkerAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyListings = () => {
 
@@ -21,29 +22,6 @@ const MyListings = () => {
                 .then((data) => setMyListings(data));
         }
     }, [user?.email]);
-
-    const InputField = ({ icon, name, label, defaultValue = '', type = 'text', readOnly = false }) => {
-        const [focused, setFocused] = useState(false);
-
-        return (
-            <div className="relative">
-                <div className="absolute left-3 top-4 text-black">{icon}</div>
-                <input
-                    name={name}
-                    type={type}
-                    defaultValue={defaultValue}
-                    readOnly={readOnly}
-                    required={!readOnly}
-                    onFocus={() => setFocused(true)}
-                    onBlur={(event) => setFocused(event.target.value !== '')}
-                    className={`pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary ${readOnly ? 'bg-gray-100 cursor-not-allowed' : ''}`}
-                />
-                <label className={`absolute left-10 text-black transition-all duration-300 ${focused || defaultValue ? 'top-1 text-xs' : 'top-4 text-sm'}`}>
-                    {label}
-                </label>
-            </div>
-        );
-    };
 
     const handleUpdate = event => {
         event.preventDefault();
@@ -93,7 +71,7 @@ const MyListings = () => {
                     .then((res) => res.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {
-                            Swal.fire("Deleted!", "Listing has been removed.", "success");
+                            Swal.fire("Deleted!", "List has been removed.", "success");
 
                             // Filter out deleted item from UI
                             const updatedListings = myListings.filter((item) => item._id !== _id);
@@ -113,6 +91,9 @@ const MyListings = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>DwellMate | My Listings</title>
+            </Helmet>
             <div className='mx-auto min-h-screen max-w-11/12 py-30'>
                 <div className='p-5 bg-white rounded-2xl shadow-md lg:p-10'>
                     <div className='mb-6 space-y-2 text-center'>
@@ -174,7 +155,6 @@ const MyListings = () => {
                                                     Update
                                                 </button>
 
-
                                                 <button
                                                     onClick={() => handleDeletion(listing._id)}
                                                     className='flex gap-2 items-center text-sm text-red-600 transition cursor-pointer hover:underline hover:text-red-800'
@@ -182,7 +162,6 @@ const MyListings = () => {
                                                     <MdDelete />
                                                     Remove
                                                 </button>
-
                                             </td>
                                         </tr>
                                     ))
@@ -193,7 +172,7 @@ const MyListings = () => {
 
                     {showModal && selectedListing && (
                         <div className="flex fixed inset-0 z-50 justify-center items-center p-4 backdrop-blur-sm bg-black/40">
-                            <div className="relative p-8 w-full max-w-4xl bg-white rounded-2xl border shadow-2xl border-white/30">
+                            <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl border border-white/30 shadow-2xl p-6 sm:p-8">
 
                                 {/* Close Button */}
                                 <button
@@ -207,27 +186,16 @@ const MyListings = () => {
 
                                 <form
                                     onSubmit={handleUpdate}
-                                    className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+                                    className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
                                 >
                                     <InputField icon={<FaClipboardList />} name="title" label="Listing Title" defaultValue={selectedListing.title} />
                                     <InputField icon={<FaMapMarkerAlt />} name="location" label="Location" defaultValue={selectedListing.location} />
                                     <InputField icon={<FaDollarSign />} name="rent" label="Rent" defaultValue={selectedListing.rent} type="number" />
                                     <InputField icon={<FaBed />} name="roomType" label="Room Type" defaultValue={selectedListing.roomType} />
                                     <InputField icon={<FaInfoCircle />} name="lifestyle" label="Lifestyle Preferences" defaultValue={selectedListing.lifestyle} />
-
-                                    {/* Description */}
-                                    <div className="relative col-span-2">
-                                        <FaInfoCircle className="absolute left-3 top-4 text-black" />
-                                        <textarea
-                                            name="description"
-                                            required
-                                            defaultValue={selectedListing.description}
-                                            className="pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
-                                        />
-                                        <label className="absolute top-1 left-10 text-xs text-black">Description</label>
-                                    </div>
-
                                     <InputField icon={<FaUser />} name="contact" label="Contact Info" defaultValue={selectedListing.contact} />
+
+                                    {/* Select - Availability */}
                                     <div className="relative">
                                         <FaCheckCircle className="absolute left-3 top-4 text-black" />
                                         <select
@@ -241,22 +209,35 @@ const MyListings = () => {
                                         <label className="absolute top-1 left-10 text-xs text-black">Availability</label>
                                     </div>
 
+                                    {/* Description (full width) */}
+                                    <div className="relative md:col-span-2 lg:col-span-3">
+                                        <FaInfoCircle className="absolute left-3 top-4 text-black" />
+                                        <textarea
+                                            name="description"
+                                            required
+                                            defaultValue={selectedListing.description}
+                                            className="pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
+                                        />
+                                        <label className="absolute top-1 left-10 text-xs text-black">Description</label>
+                                    </div>
+
+                                    {/* Read-only Fields */}
                                     <InputField icon={<FaImage />} name="photoURL" label="Photo URL" defaultValue={selectedListing.photoURL} />
                                     <InputField icon={<FaEnvelope />} name="email" label="User Email" defaultValue={selectedListing.email} readOnly />
                                     <InputField icon={<FaUser />} name="name" label="User Name" defaultValue={selectedListing.name} readOnly />
 
-                                    {/* Buttons */}
-                                    <div className="flex col-span-3 gap-4 justify-end mt-6">
+                                    {/* Buttons (full width) */}
+                                    <div className="flex flex-wrap gap-4 justify-end items-center mt-6 md:col-span-2 lg:col-span-3">
                                         <button
                                             type="button"
                                             onClick={() => setShowModal(false)}
-                                            className="px-6 py-2 text-gray-700 rounded-full border border-gray-400 transition btn hover:bg-gray-300"
+                                            className="px-6 py-2 text-gray-700 rounded-full border border-gray-400 transition hover:bg-gray-300"
                                         >
                                             Cancel
                                         </button>
                                         <button
                                             type="submit"
-                                            className="px-6 py-2 text-white rounded-full transition btn bg-primary hover:bg-violet-800"
+                                            className="px-6 py-2 text-white rounded-full transition bg-primary hover:bg-violet-800"
                                         >
                                             Update
                                         </button>
@@ -267,6 +248,29 @@ const MyListings = () => {
                     )}
                 </div>
             </div>
+        </div>
+    );
+};
+
+const InputField = ({ icon, name, label, defaultValue = '', type = 'text', readOnly = false }) => {
+    const [focused, setFocused] = useState(false);
+
+    return (
+        <div className="relative">
+            <div className="absolute left-3 top-4 text-black">{icon}</div>
+            <input
+                name={name}
+                type={type}
+                defaultValue={defaultValue}
+                readOnly={readOnly}
+                required={!readOnly}
+                onFocus={() => setFocused(true)}
+                onBlur={(event) => setFocused(event.target.value !== '')}
+                className={`pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary ${readOnly ? 'bg-gray-100 cursor-not-allowed' : ''}`}
+            />
+            <label className={`absolute left-10 text-black transition-all duration-300 ${focused || defaultValue ? 'top-1 text-xs' : 'top-4 text-sm'}`}>
+                {label}
+            </label>
         </div>
     );
 };
