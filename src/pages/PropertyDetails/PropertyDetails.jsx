@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { useLoaderData, useNavigate, useParams } from 'react-router';
+import { useLoaderData, useParams } from 'react-router';
 
 const PropertyDetails = () => {
 

@@ -7,7 +7,7 @@ import AddToFindRoommate from "../pages/AddToFindRoommate/AddToFindRoommate";
 import BrowseListing from "../pages/BrowseListing/BrowseListing";
 import MyListings from "../pages/MyListings/MyListings";
 import Register from "../pages/Register/Register";
-import PropertyDetails from "../components/PropertyDetails/PropertyDetails";
+import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 
 const router = createBrowserRouter(
     [
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/my-listings",
-                    Component: MyListings
+                    Component: MyListings,
                 },
                 {
                     path: "properties/:id",

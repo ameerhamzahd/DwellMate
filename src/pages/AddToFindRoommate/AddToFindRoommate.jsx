@@ -154,7 +154,7 @@ const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
                 onChange={onChange}
                 required
                 onFocus={() => setFocused(true)}
-                onBlur={(e) => setFocused(e.target.value !== '')}
+                onBlur={(event) => setFocused(event.target.value !== '')}
                 className="pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
             />
             <label
