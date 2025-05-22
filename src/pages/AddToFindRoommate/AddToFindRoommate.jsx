@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaMapMarkerAlt, FaDollarSign, FaBed, FaUser, FaInfoCircle, FaCheckCircle, FaEnvelope, FaClipboardList } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaDollarSign, FaBed, FaUser, FaInfoCircle, FaCheckCircle, FaEnvelope, FaClipboardList, FaImage } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { toast, Bounce } from 'react-toastify';
 
@@ -16,11 +16,13 @@ const AddToFindRoommate = () => {
         lifestyle: '',
         description: '',
         contact: '',
+        photoURL: '',
         availability: 'Available',
     });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
+
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
@@ -39,7 +41,7 @@ const AddToFindRoommate = () => {
             },
             body: JSON.stringify(newProperty)
         }).then(response => response.json()).then(data => {
-            if(data.insertedId){
+            if (data.insertedId) {
                 toast.success('Listing added successfully!', {
                     position: "top-right",
                     autoClose: 2000,
@@ -47,7 +49,7 @@ const AddToFindRoommate = () => {
                 });
             }
         })
-        
+
         // Reset form
         setFormData({
             title: '', location: '', rent: '', roomType: '', lifestyle: '',
@@ -58,18 +60,17 @@ const AddToFindRoommate = () => {
     return (
         <div>
             <Helmet>
-                <title>DwellMate | Add Roommate</title>
+                <title>DwellMate | Add to Find Roommate</title>
             </Helmet>
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-white to-violet-100 py-30">
-                <div className='text-center space-y-5 py-10'>
+            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-white to-violet-100 py-30">
+                <div className='py-10 space-y-5 text-center'>
                     <h2 className="text-3xl font-bold">Post a Roommate Listing</h2>
                     <span className="text-gray-500">Connecting Compatible Lifestyles Under One Roof.</span>
-                    <p></p>
                 </div>
-                <div className="w-11/12 bg-white/10 border border-white/30 p-8 rounded-2xl shadow-2xl backdrop-blur-md">
+                <div className="p-8 w-11/12 rounded-2xl border shadow-2xl backdrop-blur-md bg-white/10 border-white/30">
                     <form onSubmit={handleSubmit} className="space-y-6">
 
-                        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                        <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
                             {/* Title */}
                             <InputField icon={<FaClipboardList />} name="title" label="Listing Title" value={formData.title} onChange={handleChange} />
 
@@ -93,9 +94,9 @@ const AddToFindRoommate = () => {
                                     required
                                     value={formData.description}
                                     onChange={handleChange}
-                                    className="w-full pl-10 pt-6 pb-2 bg-white/20 text-black placeholder-transparent focus:outline-none border-b border-black focus:border-primary"
+                                    className="pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
                                 />
-                                <label className="absolute left-10 top-1 text-xs text-black">Description</label>
+                                <label className="absolute top-1 left-10 text-xs text-black">Description</label>
                             </div>
 
                             {/* Contact */}
@@ -108,24 +109,27 @@ const AddToFindRoommate = () => {
                                     name="availability"
                                     value={formData.availability}
                                     onChange={handleChange}
-                                    className="w-full pl-10 pt-6 pb-2 bg-white/20 text-black focus:outline-none border-b border-black focus:border-primary"
+                                    className="pt-6 pb-2 pl-10 w-full text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
                                 >
                                     <option>Available</option>
                                     <option>Not Available</option>
                                 </select>
-                                <label className="absolute left-10 top-1 text-xs text-black">Availability</label>
+                                <label className="absolute top-1 left-10 text-xs text-black">Availability</label>
                             </div>
 
+                            {/* Photot URL */}
+                            <InputField icon={<FaImage />} label="PhotoURL" value={formData.photoURL} name="photoURL" onChange={handleChange} />
+
                             {/* Read-Only Email */}
-                            <ReadOnlyField icon={<FaEnvelope />} label="User Email" value={user?.email} />
+                            <InputField icon={<FaEnvelope />} label="User Email" value={user?.email} name="email" readOnly />
 
                             {/* Read-Only Name */}
-                            <ReadOnlyField icon={<FaUser />} label="User Name" value={user?.displayName} />
+                            <InputField icon={<FaUser />} label="User Name" value={user?.displayName} name="Name" readOnly />
                         </div>
 
                         {/* Submit */}
-                        <div className="form-control mt-10">
-                            <button type='submit' className="btn btn-outline btn-primary w-full rounded-full transition-all duration-300">
+                        <div className="mt-10 form-control">
+                            <button type='submit' className="w-full rounded-full transition-all duration-300 btn btn-outline btn-primary">
                                 Add to List
                             </button>
                         </div>
@@ -151,7 +155,7 @@ const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
                 required
                 onFocus={() => setFocused(true)}
                 onBlur={(e) => setFocused(e.target.value !== '')}
-                className="w-full pl-10 pt-6 pb-2 bg-white/20 text-black placeholder-transparent focus:outline-none border-b border-black focus:border-primary"
+                className="pt-6 pb-2 pl-10 w-full placeholder-transparent text-black border-b border-black bg-white/20 focus:outline-none focus:border-primary"
             />
             <label
                 className={`absolute left-10 text-black transition-all duration-300 ${focused || value ? 'top-1 text-xs' : 'top-4 text-sm'}`}
@@ -161,19 +165,5 @@ const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
         </div>
     );
 };
-
-// ReadOnly field component
-const ReadOnlyField = ({ icon, label, value }) => (
-    <div className="relative">
-        <div className="absolute left-3 top-4 text-black">{icon}</div>
-        <input
-            type="text"
-            readOnly
-            value={value || ''}
-            className="w-full pl-10 pt-6 pb-2 bg-white/20 text-black border-b border-black focus:outline-none"
-        />
-        <label className="absolute left-10 top-1 text-xs text-black">{label}</label>
-    </div>
-);
 
 export default AddToFindRoommate;

@@ -33,7 +33,8 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/browse-listing",
-                    Component: BrowseListing
+                    Component: BrowseListing,
+                    loader: () => fetch("http://localhost:3000/properties")
                 },
                 {
                     path: "/my-listings",
