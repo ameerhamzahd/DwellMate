@@ -17,53 +17,53 @@ const Mission = () => {
 
     return (
         <div>
-            <div className="container mx-auto px-4 py-12 max-w-6xl">
+            <div className="container px-4 py-12 mx-auto max-w-6xl">
                 {/* Main Heading */}
-                <h1 className="text-5xl md:text-6xl font-bold mb-16 text-center md:text-left leading-tight">
+                <h1 className="mb-16 text-5xl font-bold leading-tight text-center">
                     The most trusted platform
                     <br /> for finding compatible
                     <br /> roommates worldwide
                 </h1>
 
                 {/* Vision and Mission */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <div>
+                <div className="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2">
+                    <div className='px-5 md:px-0'>
                         <div className="flex items-center mb-4">
-                            <div className="text-2xl mr-2"><MdOutlineDiamond /></div>
+                            <div className="mr-2 text-2xl"><MdOutlineDiamond /></div>
                             <h2 className="text-xl font-bold">Our vision</h2>
                         </div>
-                        <p className="text-gray-700 font-medium">
+                        <p className="font-medium text-gray-700">
                             To connect people with ideal roommates through a secure, reliable platform that makes shared living more accessible and enjoyable.
                         </p>
                     </div>
 
-                    <div>
+                    <div className='px-5 md:px-0'>
                         <div className="flex items-center mb-4">
-                            <div className="text-2xl mr-2"><MdOutlineRocketLaunch /></div>
+                            <div className="mr-2 text-2xl"><MdOutlineRocketLaunch /></div>
                             <h2 className="text-xl font-bold">Our mission</h2>
                         </div>
-                        <p className="text-gray-700 font-medium">
+                        <p className="font-medium text-gray-700">
                             Our matching system is designed to bring together compatible roommates based on lifestyle, preferences, and habits, ensuring harmonious shared living experiences.
                         </p>
                     </div>
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                     {/* Building Image */}
-                    <div className="md:col-span-1 rounded-xl overflow-hidden shadow-lg h-96 md:h-auto">
+                    <div className="overflow-hidden h-96 rounded-xl shadow-lg md:col-span-1 md:h-auto">
                         <img
                             src={img1}
                             alt="Modern shared apartment"
-                            className="w-full h-full object-cover"
+                            className="object-cover w-full h-full"
                         />
                     </div>
 
                     {/* Stats Grid */}
-                    <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-6 md:col-span-2 sm:grid-cols-2">
                         {/* Global Reach */}
-                        <div className="bg-gray-50 p-8 rounded-xl">
-                            <div className="text-xs font-bold tracking-widest mb-6 text-gray-900">
+                        <div className="p-8 bg-gray-50 rounded-xl">
+                            <div className="mb-6 text-xs font-bold tracking-widest text-gray-900">
                                 CITIES COVERED
                             </div>
                             <div className="flex items-baseline">
@@ -76,14 +76,14 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30} /></span>
+                                <span className="ml-1 text-5xl font-bold text-primary"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">major cities worldwide</div>
                         </div>
 
                         {/* Local Expertise */}
-                        <div className="bg-gray-50 p-8 rounded-xl">
-                            <div className="text-xs font-bold tracking-widest mb-6 text-gray-900">
+                        <div className="p-8 bg-gray-50 rounded-xl">
+                            <div className="mb-6 text-xs font-bold tracking-widest text-gray-900">
                                 ACTIVE USERS
                             </div>
                             <div className="flex items-baseline">
@@ -96,14 +96,14 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl font-bold ml-1 text-primary"><FaPlus size={30} /></span>
+                                <span className="ml-1 text-5xl font-bold text-primary"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">active monthly users</div>
                         </div>
 
                         {/* Our Impact */}
-                        <div className="bg-gray-50 p-8 rounded-xl">
-                            <div className="text-xs font-bold tracking-widest mb-6 text-gray-900">
+                        <div className="p-8 bg-gray-50 rounded-xl">
+                            <div className="mb-6 text-xs font-bold tracking-widest text-gray-900">
                                 SUCCESSFUL MATCHES
                             </div>
                             <div className="flex items-baseline">
@@ -116,17 +116,17 @@ const Mission = () => {
                                         />
                                     )}
                                 </span>
-                                <span className="text-5xl text-primary font-bold ml-1"><FaPlus size={30} /></span>
+                                <span className="ml-1 text-5xl font-bold text-primary"><FaPlus size={30} /></span>
                             </div>
                             <div className="mt-2 text-primary">roommate matches made</div>
                         </div>
 
                         {/* Building Model Image */}
-                        <div className="bg-gray-50 rounded-xl overflow-hidden">
+                        <div className="overflow-hidden bg-gray-50 rounded-xl">
                             <img
                                 src={img2}
                                 alt="Roommates enjoying shared space"
-                                className="w-full h-full object-cover rounded-lg"
+                                className="object-cover w-full h-full rounded-lg"
                             />
                         </div>
                     </div>

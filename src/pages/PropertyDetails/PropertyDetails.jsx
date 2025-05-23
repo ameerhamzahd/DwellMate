@@ -23,7 +23,7 @@ const PropertyDetails = () => {
             
             <div className="">
                 {/* Header */}
-                <div className="space-y-3 text-center rounded-2xl pt-30 lg:space-y-5">
+                <div className="space-y-3 text-center rounded-2xl pt-30 px-5">
                     <h1 className="text-3xl font-bold text-gray-800">Accommodation Insights</h1>
                     <p className="font-medium text-gray-500">Live Where It Feels Right — Know Before You Book.</p>
                 </div>

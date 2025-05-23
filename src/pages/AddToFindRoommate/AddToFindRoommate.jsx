@@ -34,7 +34,7 @@ const AddToFindRoommate = () => {
         const formData = new FormData(form);
         const newProperty = Object.fromEntries(formData.entries());
 
-        fetch("http://localhost:3000/properties", {
+        fetch("https://dwellmate-server.vercel.app/properties", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -53,7 +53,7 @@ const AddToFindRoommate = () => {
         // Reset form
         setFormData({
             title: '', location: '', rent: '', roomType: '', lifestyle: '',
-            description: '', contact: '', availability: 'Available'
+            description: '', contact: '', availability: 'Available', photoURL: ''
         });
     };
 
@@ -63,7 +63,7 @@ const AddToFindRoommate = () => {
                 <title>DwellMate | Add to Find Roommate</title>
             </Helmet>
             <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-white to-violet-100 py-30">
-                <div className='py-10 space-y-5 text-center'>
+                <div className='py-10 space-y-5 text-center px-5'>
                     <h2 className="text-3xl font-bold">Post a Roommate Listing</h2>
                     <span className="text-gray-500">Connecting Compatible Lifestyles Under One Roof.</span>
                 </div>

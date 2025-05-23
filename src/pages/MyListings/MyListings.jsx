@@ -17,7 +17,7 @@ const MyListings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/properties/user/${user.email}`)
+            fetch(`https://dwellmate-server.vercel.app/properties/user/${user.email}`)
                 .then((response) => response.json())
                 .then((data) => setMyListings(data));
         }
@@ -30,7 +30,7 @@ const MyListings = () => {
         const formData = new FormData(form);
         const updatedProperty = Object.fromEntries(formData.entries());
 
-        fetch(`http://localhost:3000/properties/${selectedListing._id}`, {
+        fetch(`https://dwellmate-server.vercel.app/properties/${selectedListing._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ const MyListings = () => {
                     showConfirmButton: false,
                 });
 
-                fetch(`http://localhost:3000/properties/user/${user.email}`)
+                fetch(`https://dwellmate-server.vercel.app/properties/user/${user.email}`)
                     .then(response => response.json())
                     .then(data => setMyListings(data));
 
@@ -65,7 +65,7 @@ const MyListings = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/properties/${_id}`, {
+                fetch(`https://dwellmate-server.vercel.app/properties/${_id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -94,7 +94,7 @@ const MyListings = () => {
             <Helmet>
                 <title>DwellMate | My Listings</title>
             </Helmet>
-            <div className='mx-auto min-h-screen max-w-11/12 py-30'>
+            <div className='mx-auto min-h-screen max-w-11/12 pt-30 pb-15'>
                 <div className='p-5 bg-white rounded-2xl shadow-md lg:p-10'>
                     <div className='mb-6 space-y-2 text-center'>
                         <h1 className='text-3xl font-bold text-gray-800'>My Property Listings</h1>
@@ -172,7 +172,7 @@ const MyListings = () => {
 
                     {showModal && selectedListing && (
                         <div className="flex fixed inset-0 z-50 justify-center items-center p-4 backdrop-blur-sm bg-black/40">
-                            <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl border border-white/30 shadow-2xl p-6 sm:p-8">
+                            <div className="relative p-8 w-full max-w-4xl max-h-[90vh] bg-white rounded-2xl border shadow-2xl border-white/30 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
 
                                 {/* Close Button */}
                                 <button

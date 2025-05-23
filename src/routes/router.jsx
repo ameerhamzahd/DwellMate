@@ -8,6 +8,7 @@ import BrowseListing from "../pages/BrowseListing/BrowseListing";
 import MyListings from "../pages/MyListings/MyListings";
 import Register from "../pages/Register/Register";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
+import TermsConditon from "../pages/TermsCondition/TermsConditon";
 
 const router = createBrowserRouter(
     [
@@ -18,7 +19,8 @@ const router = createBrowserRouter(
             children: [
                 {
                     index: true,
-                    Component: Home
+                    Component: Home,
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties/listings/availability")
                 },
                 {
                     path: "/login",
@@ -35,16 +37,21 @@ const router = createBrowserRouter(
                 {
                     path: "/browse-listing",
                     Component: BrowseListing,
-                    loader: () => fetch("http://localhost:3000/properties")
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties")
                 },
                 {
                     path: "/my-listings",
                     Component: MyListings
                 },
                 {
-                    path: "properties/:id",
+                    path: "/properties/:id",
                     Component: PropertyDetails,
-                    loader: () => fetch("http://localhost:3000/properties")
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties")
+                },
+                {
+                    path: "/terms-condition",
+                    Component: TermsConditon,
+                    
                 },
             ]
         }

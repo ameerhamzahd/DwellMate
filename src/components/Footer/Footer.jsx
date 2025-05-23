@@ -29,7 +29,7 @@ const Footer = () => {
                         <FaPhone className="mr-3 text-primary" /> +1 (800) 123-4567
                     </a>
                     <a className="flex items-center">
-                        <FaEnvelope className="mr-3 text-primary" /> info@dwellmate.com
+                        <FaEnvelope className="mr-3 text-primary" /> info@dwellmate.org
                     </a>
                 </div>
 
