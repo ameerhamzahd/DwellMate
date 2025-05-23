@@ -9,6 +9,8 @@ import MyListings from "../pages/MyListings/MyListings";
 import Register from "../pages/Register/Register";
 import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import TermsConditon from "../pages/TermsCondition/TermsConditon";
+import Loader from "../components/Loader/Loader";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter(
     [
@@ -20,7 +22,8 @@ const router = createBrowserRouter(
                 {
                     index: true,
                     Component: Home,
-                    loader: () => fetch("https://dwellmate-server.vercel.app/properties/listings/availability")
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties/listings/availability"),
+                    hydrateFallbackElement: Loader
                 },
                 {
                     path: "/login",
@@ -32,26 +35,35 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/add-to-find-roommate",
-                    Component: AddToFindRoommate
+                    element:
+                        <PrivateRoute>
+                            <AddToFindRoommate></AddToFindRoommate>
+                        </PrivateRoute>
                 },
                 {
                     path: "/browse-listing",
                     Component: BrowseListing,
-                    loader: () => fetch("https://dwellmate-server.vercel.app/properties")
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties"),
+                    hydrateFallbackElement: Loader
                 },
                 {
                     path: "/my-listings",
-                    Component: MyListings
+                    element:
+                        <PrivateRoute>
+                            <MyListings></MyListings>
+                        </PrivateRoute>,
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties/user/:email"),
+                    hydrateFallbackElement: Loader
                 },
                 {
                     path: "/properties/:id",
                     Component: PropertyDetails,
-                    loader: () => fetch("https://dwellmate-server.vercel.app/properties")
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties"),
+                    hydrateFallbackElement: Loader
                 },
                 {
                     path: "/terms-condition",
                     Component: TermsConditon,
-                    
                 },
             ]
         }

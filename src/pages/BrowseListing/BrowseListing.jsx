@@ -6,8 +6,8 @@ import PropertyCard from '../../components/PropertyCard/PropertyCard';
 
 
 const BrowseListing = () => {
+    
     const properties = useLoaderData();
-    console.log(properties);
 
     return (
         <div>

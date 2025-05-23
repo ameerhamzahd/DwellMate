@@ -19,7 +19,7 @@ const MainLayout = () => {
 
             <main>
                 {
-                    state == "loading" ? <Loader></Loader> : <Outlet></Outlet>
+                    state === "loading" ? <Loader></Loader> : <Outlet></Outlet>
                 }
             </main>
 
