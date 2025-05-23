@@ -6,6 +6,7 @@ import { FaBed, FaClipboardList, FaDollarSign, FaEnvelope, FaImage, FaUser } fro
 import { FaCheckCircle, FaInfoCircle, FaMapMarkerAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import Loader from '../../components/Loader/Loader';
 
 const MyListings = () => {
 
