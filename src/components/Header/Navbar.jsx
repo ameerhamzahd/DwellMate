@@ -1,12 +1,12 @@
 import React, { use, useEffect, useState } from 'react';
 import { toast, Bounce } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import { FaCircleUser } from "react-icons/fa6";
 import logo from "../../assets/logo.png"
 import { Link, NavLink } from 'react-router';
 import { TbLogin2, TbLogout2 } from 'react-icons/tb';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Tooltip } from 'react-tooltip';
+import userAvatarDefault from '../../assets/user.png'
 
 const Navbar = () => {
 
@@ -132,20 +132,35 @@ const Navbar = () => {
                                         className="toggle theme-controller mr-3" />)
                                 }
 
-                                <div className="dropdown dropdown-end relative">
-                                    <div id="user-avatar-tooltip" className="btn btn-ghost btn-circle avatar cursor-pointer">
+                                <div className="dropdown dropdown-end">
+                                    <div
+                                        id="user-avatar-tooltip"
+                                        tabIndex={0}
+                                        className="btn btn-ghost btn-circle avatar cursor-pointer"
+                                        data-tooltip-id="user-tooltip"
+                                    >
                                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                             {user?.photoURL ? (
                                                 <img src={user.photoURL} alt="User Avatar" />
                                             ) : (
-                                                <FaCircleUser className="text-2xl" />
+                                                <img src={userAvatarDefault} alt="User Avatar" />
                                             )}
                                         </div>
                                     </div>
 
-                                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-white rounded-box w-52 text-gray-800 gap-2">
-                                        <li className='flex justify-center items-center italic font-bold'><Link to="/my-listings">{user.displayName}</Link></li>
-                                        <li><Link onClick={handleLogout} className='flex items-center justify-center gap-1'><TbLogout2 size={20} />Logout</Link></li>
+                                    {/* Dropdown Menu (on click) */}
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content mt-3 z-[60] p-2 shadow bg-white rounded-box w-52 text-gray-800 gap-2"
+                                    >
+                                        <li className='flex justify-center items-center italic font-bold'>
+                                            <Link to="/my-listings">{user.displayName}</Link>
+                                        </li>
+                                        <li>
+                                            <Link onClick={handleLogout} className='flex items-center justify-center gap-1'>
+                                                <TbLogout2 size={20} />Logout
+                                            </Link>
+                                        </li>
                                     </ul>
                                 </div>
                             </>

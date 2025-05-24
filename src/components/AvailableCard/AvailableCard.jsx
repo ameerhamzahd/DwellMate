@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 const AvailableCard = ({ data }) => {
 
     const {
-        _id, title, location, rent, roomType, contact, availability, photoURL
+        _id, title, location, rent, roomType, contact, availability, photoURL, likes
     } = data;
 
     return (
@@ -23,16 +23,6 @@ const AvailableCard = ({ data }) => {
                             className="object-cover w-full rounded-t-lg transition-transform duration-300 group-hover:scale-105"
                         />
                     </figure>
-
-                    {/* Action buttons */}
-                    <div className="flex absolute top-3 right-3 gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        <button className="bg-white shadow-md btn btn-circle btn-sm hover:bg-gray-100">
-                            <FaHeart className="text-gray-600" />
-                        </button>
-                        <button className="bg-white shadow-md btn btn-circle btn-sm hover:bg-gray-100">
-                            <FaShare className="text-gray-600" />
-                        </button>
-                    </div>
 
                     {/* Rent & Availability */}
                     <div className="flex absolute bottom-3 left-3 gap-3">
@@ -68,11 +58,11 @@ const AvailableCard = ({ data }) => {
                         <div className="flex gap-1 items-center"><FaHome /><span>{roomType}</span></div>
                     </div>
 
-                    <div className="justify-end items-center card-actions">
+                    <div className="items-center card-actions flex justify-between">
+                        <p className="text-sm text-gray-500"><strong>{likes || 0}</strong> people interested</p>
+
                         <Link to={`/properties/${_id}`} >
-                            <button
-                                className="flex gap-2 items-center btn btn-outline btn-primary btn-sm"
-                            >
+                            <button className="flex gap-2 items-center btn btn-outline btn-primary btn-sm">
                                 <FaEye />
                                 See More
                             </button>

@@ -19,13 +19,13 @@ const Mission = () => {
         <div>
             <div className="container px-4 py-12 mx-auto max-w-6xl">
                 {/* Main Heading */}
-                <h1 className="mb-16 text-5xl font-bold leading-tight text-center">
+                <h1 className="mb-16 text-3xl font-bold leading-tight text-center">
                     The most trusted platform for finding compatible roommates worldwide
                 </h1>
 
                 {/* Vision and Mission */}
                 <div className="grid grid-cols-1 gap-8 mb-16 md:grid-cols-2">
-                    <div className='px-5 md:px-0'>
+                    <div className='px-5 lg:px-0'>
                         <div className="flex items-center mb-4">
                             <div className="mr-2 text-2xl"><MdOutlineDiamond /></div>
                             <h2 className="text-xl font-bold">Our vision</h2>
@@ -35,7 +35,7 @@ const Mission = () => {
                         </p>
                     </div>
 
-                    <div className='px-5 md:px-0'>
+                    <div className='px-5 lg:px-0'>
                         <div className="flex items-center mb-4">
                             <div className="mr-2 text-2xl"><MdOutlineRocketLaunch /></div>
                             <h2 className="text-xl font-bold">Our mission</h2>

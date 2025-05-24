@@ -141,7 +141,7 @@ const TestimonialAndTeamSection = () => {
                     <p className="text-sm font-semibold uppercase">TEAM</p>
                 </div>
 
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+                <h2 className="text-3xl font-bold text-center mb-16">
                     Global executive<br />leadership
                 </h2>
 
