@@ -1,4 +1,4 @@
-# DwellMate 🏠
+# DwellMate 
 
 **DwellMate** is a modern, full-stack web application designed to help individuals find compatible roommates based on location, budget, lifestyle preferences, and interests. Whether you're looking for a shared space or listing a vacant room, DwellMate connects the right people through an intuitive and engaging platform.
 
@@ -73,7 +73,7 @@ Built with React, Tailwind CSS, Firebase Authentication, Express.js, and MongoDB
 
 ## 🚀 Deployment Steps to Firebase
 
-1. **Login to Firebase CLI**:
+1. **Login to Firebase CLI (if not already)**:
     ```bash
     npm install -g firebase-tools
     firebase login
