@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-    FaMapMarkerAlt, FaBed, FaBath, FaHome,
-    FaHeart, FaShare, FaEye, FaPhone, FaTimes
+    FaMapMarkerAlt, FaBed, FaBath, FaHome, FaEye
 } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const AvailableCard = ({ data }) => {
 
     const {
-        _id, title, location, rent, roomType, contact, availability, photoURL, likes
+        _id, title, description, location, rent, roomType, availability, photoURL, likes
     } = data;
 
     return (
@@ -49,7 +48,7 @@ const AvailableCard = ({ data }) => {
                     <h3 className="mb-2 text-lg font-bold text-gray-800 card-title line-clamp-2">{title}</h3>
 
                     <p className="flex items-center mb-3 text-sm text-gray-600 line-clamp-2">
-                        <FaPhone className="mr-1" /> {contact}
+                        {description}
                     </p>
 
                     <div className="flex gap-4 items-center mb-3 text-sm text-gray-600">

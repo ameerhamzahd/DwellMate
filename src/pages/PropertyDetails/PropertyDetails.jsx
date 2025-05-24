@@ -13,6 +13,7 @@ const PropertyDetails = () => {
     const { user } = use(AuthContext);
     const targetedProperty = data.find(property => property._id === id);
     const [likeCount, setLikeCount] = useState(targetedProperty?.likes || 0);
+    const [showContact, setShowContact] = useState(false);
 
     const {
         _id, title, location, rent, roomType, lifestyle,
@@ -29,32 +30,33 @@ const PropertyDetails = () => {
             });
             return;
         }
-    
+
         fetch(`https://dwellmate-server.vercel.app/properties/likes/${_id}`, {
             method: 'PUT',
         })
-        .then(async (response) => {
-            const contentType = response.headers.get("content-type");
-            if (contentType && contentType.includes("application/json")) {
-                return response.json();
-            } else {
-                return { modifiedCount: 1, likes: likeCount + 1 };
-            }
-        })
-        .then((data) => {
-            if (data.modifiedCount) {
-                toast.success("You liked this post!", {
-                    position: "top-right",
-                    autoClose: 2000,
-                    theme: "light",
-                    transition: Bounce,
-                });
-                
-                setLikeCount(data.likes);
-            }
-        })
+            .then(async (response) => {
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    return response.json();
+                } else {
+                    return { modifiedCount: 1, likes: likeCount + 1 };
+                }
+            })
+            .then((data) => {
+                if (data.modifiedCount) {
+                    toast.success("You liked this post!", {
+                        position: "top-right",
+                        autoClose: 2000,
+                        theme: "light",
+                        transition: Bounce,
+                    });
 
-    };        
+                    setLikeCount(data.likes);
+                    setShowContact(true);
+                }
+            })
+
+    };
 
     return (
         <div>
@@ -110,7 +112,11 @@ const PropertyDetails = () => {
                             <div className='flex flex-col gap-4 justify-center pb-3 text-center border-b-2 border-gray-400 border-dashed md:text-left'>
                                 <p className="text-gray-700 text-md"><strong>Room Type:</strong><br /> {roomType}</p>
                                 <p className="text-gray-700 text-md"><strong>Lifestyle:</strong><br /> {lifestyle}</p>
-                                <p className="text-gray-700 text-md"><strong>Contact:</strong><br /> {contact}</p>
+                                
+                                {showContact && (
+                                    <p className="text-gray-700 text-md"><strong>Contact:</strong><br /> {contact}</p>
+                                )}
+                                
                                 <p className="text-gray-700 text-md"><strong>Email:</strong><br /> {email}</p>
                                 <p className="text-gray-700 text-md"><strong>Posted By:</strong><br /> {name}</p>
                             </div>
@@ -122,9 +128,7 @@ const PropertyDetails = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     );

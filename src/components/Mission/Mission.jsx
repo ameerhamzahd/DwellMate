@@ -20,7 +20,7 @@ const Mission = () => {
             <div className="container px-4 py-12 mx-auto max-w-6xl">
                 {/* Main Heading */}
                 <h1 className="mb-16 text-3xl font-bold leading-tight text-center">
-                    The most trusted platform for finding compatible roommates worldwide
+                    The most trusted platform <br /> for finding compatible roommates worldwide
                 </h1>
 
                 {/* Vision and Mission */}

@@ -68,7 +68,7 @@ const BannerSlider = () => {
                           {bannerSlider.subtitle}
                         </p>
 
-                        <Link to="/search" className="rounded-full btn btn-primary btn-lg">
+                        <Link to="#" className="rounded-full btn btn-primary btn-lg">
                           Find Your Roommate <FaChevronRight />
                         </Link>
                       </div>

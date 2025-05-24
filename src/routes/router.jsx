@@ -57,7 +57,10 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/properties/:id",
-                    Component: PropertyDetails,
+                    element:
+                        <PrivateRoute>
+                            <PropertyDetails></PropertyDetails>
+                        </PrivateRoute>,
                     loader: () => fetch("https://dwellmate-server.vercel.app/properties"),
                     hydrateFallbackElement: Loader
                 },

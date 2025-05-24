@@ -1,14 +1,13 @@
 import React from 'react';
 import {
-    FaMapMarkerAlt, FaBed, FaBath, FaHome,
-    FaHeart, FaShare, FaEye, FaPhone, FaTimes
+    FaMapMarkerAlt, FaBed, FaBath, FaHome, FaEye
 } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const PropertyCard = ({ property }) => {
 
     const {
-        _id, title, location, rent, roomType, contact, availability, photoURL, likes
+        _id, title, location, rent, roomType, availability, photoURL, likes, description
     } = property;
 
     return (
@@ -42,18 +41,18 @@ const PropertyCard = ({ property }) => {
 
                 {/* Card Body */}
                 <div className="p-4 card-body">
-                    <div className="flex gap-2 items-center mb-2 text-sm text-gray-500">
+                    <div className="flex gap-2 items-center text-sm text-gray-500">
                         <FaMapMarkerAlt className="mr-1" size={12} />
                         {location}
                     </div>
 
-                    <h3 className="mb-2 text-lg font-bold text-gray-800 card-title line-clamp-2">{title}</h3>
+                    <h3 className="text-lg font-bold text-gray-800 card-title line-clamp-2">{title}</h3>
 
-                    <p className="flex items-center mb-3 text-sm text-gray-600 line-clamp-2">
-                        <FaPhone className="mr-1" /> {contact}
+                    <p className="flex items-center text-sm text-gray-600 line-clamp-2">
+                        {description}
                     </p>
 
-                    <div className="flex gap-4 items-center mb-3 text-sm text-gray-600">
+                    <div className="flex gap-4 items-center text-sm text-gray-600">
                         <div className="flex gap-1 items-center"><FaBed /><span>Bed</span></div>
                         <div className="flex gap-1 items-center"><FaBath /><span>Bath</span></div>
                         <div className="flex gap-1 items-center"><FaHome /><span>{roomType}</span></div>

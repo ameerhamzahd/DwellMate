@@ -69,7 +69,7 @@ const MyListings = () => {
                 fetch(`https://dwellmate-server.vercel.app/properties/${_id}`, {
                     method: "DELETE",
                 })
-                    .then((res) => res.json())
+                    .then((response) => response.json())
                     .then((data) => {
                         if (data.deletedCount > 0) {
                             Swal.fire("Deleted!", "List has been removed.", "success");
@@ -88,7 +88,6 @@ const MyListings = () => {
             }
         });
     };
-
 
     return (
         <div>
@@ -157,6 +156,7 @@ const MyListings = () => {
                                                 </button>
 
                                                 <button
+                                                    type="button"
                                                     onClick={() => handleDeletion(listing._id)}
                                                     className='flex gap-2 items-center text-sm text-red-600 transition cursor-pointer hover:underline hover:text-red-800'
                                                 >
