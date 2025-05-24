@@ -1,6 +1,8 @@
 # DwellMate 🏠
 
-**DwellMate** is a sleek, responsive web application crafted to help users explore, list, and manage rental properties with ease. With a clean UI and secure authentication via Firebase, DwellMate empowers both tenants and landlords to connect effortlessly.
+**DwellMate** is a modern, full-stack web application designed to help individuals find compatible roommates based on location, budget, lifestyle preferences, and interests. Whether you're looking for a shared space or listing a vacant room, DwellMate connects the right people through an intuitive and engaging platform.
+
+Built with React, Tailwind CSS, Firebase Authentication, Express.js, and MongoDB, DwellMate ensures a secure and user-friendly experience from profile creation to roommate matching.
 
 ---
 
