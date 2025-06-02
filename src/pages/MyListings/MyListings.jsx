@@ -13,7 +13,6 @@ const MyListings = () => {
     const { user } = useContext(AuthContext);
     const [myListings, setMyListings] = useState([]);
     const [selectedListing, setSelectedListing] = useState(null);
-
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
@@ -77,14 +76,8 @@ const MyListings = () => {
                             // Filter out deleted item from UI
                             const updatedListings = myListings.filter((item) => item._id !== _id);
                             setMyListings(updatedListings);
-                        } else {
-                            Swal.fire("Error!", "Failed to delete listing.", "error");
                         }
                     })
-                    .catch((error) => {
-                        console.error(error);
-                        Swal.fire("Error!", "Something went wrong.", "error");
-                    });
             }
         });
     };
