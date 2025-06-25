@@ -28,7 +28,7 @@ const AboutUs = () => {
                         <h2 className="text-2xl font-semibold">What We Offer</h2>
                         <ul className="pl-6 space-y-1 list-disc">
                             <li>A halal platform for finding roommates and listings</li>
-                            <li>Filtered properties based on availability, rent, and location</li>
+                            <li>Filtered properties based on availability and rent</li>
                             <li>Real-time communication and interaction tools</li>
                             <li>A secure and respectful environment for all users</li>
                         </ul>
