@@ -11,6 +11,7 @@ import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import TermsConditon from "../pages/TermsCondition/TermsConditon";
 import Loader from "../components/Loader/Loader";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const router = createBrowserRouter(
     [
@@ -66,6 +67,14 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/terms-condition",
+                    Component: TermsConditon,
+                },
+                {
+                    path: "/about-us",
+                    Component: AboutUs,
+                },
+                {
+                    path: "/contact-us",
                     Component: TermsConditon,
                 },
             ]

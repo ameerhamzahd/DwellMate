@@ -10,11 +10,25 @@ import userAvatarDefault from '../../assets/user.png'
 
 const Navbar = () => {
 
+    const { user, logoutUser } = use(AuthContext);
+
     const navLinkStyle = ({ isActive }) =>
         `relative inline-block after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${isActive ? 'text-primary font-bold' : ''
         }`;
 
-    const { user, logoutUser } = use(AuthContext);
+    const links = <>
+        <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
+        <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
+        {
+            user && <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
+        }
+        {
+            user && <li><NavLink to="/my-listings" className={navLinkStyle}>My Listings</NavLink></li>
+        }
+        <li><NavLink to="/about-us" className={navLinkStyle}>About Us</NavLink></li>
+        <li><NavLink to="/contact-us" className={navLinkStyle}>Contact Us</NavLink></li>
+    </>
+
     // const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
 
     useEffect(() => {
@@ -80,12 +94,7 @@ const Navbar = () => {
                             </svg>
                         </label>
                         <ul tabIndex={0} className="p-2 mt-3 space-y-1 w-52 text-gray-800 bg-white shadow menu menu-sm dropdown-content rounded-box">
-                            <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
-                            <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
-                            <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
-                            {
-                                user && <li><NavLink to="/my-listings" className={navLinkStyle}>My Listings</NavLink></li>
-                            }
+                            {links}
 
                             <div className='pt-3 space-y-3 md:hidden'>
                                 {
@@ -110,12 +119,7 @@ const Navbar = () => {
 
                 <div className="hidden navbar-center lg:flex">
                     <ul className="gap-5 px-1 font-medium menu-horizontal">
-                        <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
-                        <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
-                        <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
-                        {
-                            user && <li><NavLink to="/my-listings" className={navLinkStyle}>My Listings</NavLink></li>
-                        }
+                    {links}
                     </ul>
                 </div>
 
