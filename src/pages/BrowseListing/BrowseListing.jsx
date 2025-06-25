@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router';
 import { FaHome } from 'react-icons/fa';
@@ -6,8 +6,23 @@ import PropertyCard from '../../components/PropertyCard/PropertyCard';
 
 
 const BrowseListing = () => {
-    
+
     const properties = useLoaderData();
+
+    const [sortOrder, setSortOrder] = useState(null);
+    const [sortedProperties, setSortedProperties] = useState([]);
+
+    useEffect(() => {
+        if (sortOrder === 'Ascending') {
+            const sorted = [...properties].sort((a, b) => a.rent - b.rent);
+            setSortedProperties(sorted);
+        } else if (sortOrder === 'Descending') {
+            const sorted = [...properties].sort((a, b) => b.rent - a.rent);
+            setSortedProperties(sorted);
+        } else {
+            setSortedProperties(properties)
+        }
+    }, [sortOrder, properties])
 
     return (
         <div>
@@ -24,7 +39,7 @@ const BrowseListing = () => {
                                 <div className="mr-3 w-12 h-1 bg-primary"></div>
                                 <span className="text-sm font-semibold text-gray-500 uppercase">PROPERTIES</span>
                             </div>
-                            <h1 className="text-4xl font-bold text-gray-800 md:text-5xl">
+                            <h1 className="text-3xl font-bold text-gray-800">
                                 Discover Listings
                             </h1>
                             <p className="mx-auto max-w-2xl text-xl text-gray-600">
@@ -34,6 +49,18 @@ const BrowseListing = () => {
                                 <span>{properties.length} properties available</span>
                                 <span>•</span>
                                 <span>Updated daily</span>
+                            </div>
+
+                            <div>
+                                <select
+                                    className="select select-primary"
+                                    onChange={(event) => setSortOrder(event.target.value)}
+                                    defaultValue=""
+                                >
+                                    <option disabled value="">Sort by price</option>
+                                    <option value="Ascending">Ascending</option>
+                                    <option value="Descending">Descending</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -50,9 +77,9 @@ const BrowseListing = () => {
                         ) : (
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
                                 {
-                                properties.map((property) => (
-                                    <PropertyCard key={property._id} property={property}></PropertyCard>
-                                ))
+                                    sortedProperties.map((property) => (
+                                        <PropertyCard key={property._id} property={property} />
+                                    ))
                                 }
                             </div>
                         )}

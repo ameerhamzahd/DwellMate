@@ -42,7 +42,7 @@ const BannerSlider = () => {
               return (
                 <SwiperSlide key={bannerSlider.id}>
                   <div
-                    className="hero h-[1000px]"
+                    className="hero h-[650px] bg-top bg-cover bg-no-repeat"
                     style={{
                       backgroundImage: `url(${bannerSlider.image})`
                     }}
@@ -68,7 +68,7 @@ const BannerSlider = () => {
                           {bannerSlider.subtitle}
                         </p>
 
-                        <Link to="#" className="rounded-full btn btn-primary btn-lg">
+                        <Link to="/browse-listing" className="rounded-full btn btn-primary btn-lg">
                           Find Your Roommate <FaChevronRight />
                         </Link>
                       </div>

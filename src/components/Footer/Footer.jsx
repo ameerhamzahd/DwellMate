@@ -5,6 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { GrInstagram } from "react-icons/gr";
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import logo from "../../assets/logo.png"
 
 const Footer = () => {
 
@@ -14,13 +15,16 @@ const Footer = () => {
 
     return (
         <div className='bg-violet-100'>
-            <footer className="footer footer-horizontal footer-center text-base-content rounded p-10">
+            <footer className="p-10 rounded footer footer-horizontal footer-center text-base-content">
                 <nav className="">
+                <div className="flex gap-1 items-center text-xl font-bold">
+                <img className="scale-125 w-15" src={logo} alt="Logo" /> DwellMate
+                </div>
                     <span className="footer-title">Legal</span>
                     <NavLink to="/terms-condition" className={navLinkStyle}>Terms & Condition</NavLink>
                 </nav>
 
-                <div className="flex flex-col gap-2 text-center items-center lg:items-start lg:text-start">
+                <div className="flex flex-col gap-2 items-center text-center lg:items-start lg:text-start">
                     <span className="footer-title">Contact</span>
                     <a className="flex items-center">
                         <FaMapMarkerAlt className="mr-3 text-primary" /> 123 Main St, New York, NY 10001
@@ -36,10 +40,10 @@ const Footer = () => {
                 <nav>
                     <span className="footer-title">Social</span>
                     <div className="flex gap-3 text-primary">
-                        <a href="https://www.facebook.com/ameerhamzah.daiyan/" target='_blank'><FaFacebook size={25} className='hover:scale-110 hover:cursor-pointer duration-300' /></a>
-                        <a href="https://www.instagram.com/ameerhamzah.d/" target='_blank'><GrInstagram size={25} className='hover:scale-110 hover:cursor-pointer duration-300' /></a>
-                        <a href="https://x.com/ameerhamzahd" target='_blank'><FaXTwitter size={25} className='hover:scale-110 hover:cursor-pointer duration-300' /></a>
-                        <a href="https://www.linkedin.com/in/ameerhamzahd/" target='_blank'><IoLogoLinkedin size={25} className='hover:scale-110 hover:cursor-pointer duration-300' /></a>
+                        <a href="https://www.facebook.com/ameerhamzah.daiyan/" target='_blank'><FaFacebook size={25} className='duration-300 hover:scale-110 hover:cursor-pointer' /></a>
+                        <a href="https://www.instagram.com/ameerhamzah.d/" target='_blank'><GrInstagram size={25} className='duration-300 hover:scale-110 hover:cursor-pointer' /></a>
+                        <a href="https://x.com/ameerhamzahd" target='_blank'><FaXTwitter size={25} className='duration-300 hover:scale-110 hover:cursor-pointer' /></a>
+                        <a href="https://www.linkedin.com/in/ameerhamzahd/" target='_blank'><IoLogoLinkedin size={25} className='duration-300 hover:scale-110 hover:cursor-pointer' /></a>
                     </div>
                 </nav>
 

@@ -71,36 +71,36 @@ const TestimonialAndTeamSection = () => {
     ];
 
     return (
-        <div className="w-full bg-white py-16">
+        <div className="py-16 w-full bg-white">
             {/* Testimonials */}
-            <div className="container mx-auto px-4 max-w-5xl text-center mb-16">
-                <div className="text-lg md:text-xl font-medium mb-1 flex justify-center">
-                    <span className="text-gray-500">TESTIMONIALS</span>
+            <div className="container px-4 mx-auto mb-16 max-w-5xl text-center">
+                <div className="flex justify-center mb-1 text-lg font-medium md:text-xl">
+                    <span className="text-3xl font-bold">TESTIMONIALS</span>
                 </div>
 
                 {testimonialMembers.length > 0 && (
                     <div className="py-8">
-                        <div className="carousel w-full">
-                            <div className="carousel-item relative w-full">
-                                <div className="flex flex-col items-center justify-center w-full px-4 md:px-16">
-                                    <blockquote className="text-2xl md:text-3xl font-medium text-center mb-6 text-primary px-8">
+                        <div className="w-full carousel">
+                            <div className="relative w-full carousel-item">
+                                <div className="flex flex-col justify-center items-center px-4 w-full md:px-16">
+                                    <blockquote className="px-8 mb-6 text-2xl font-medium text-center md:text-3xl text-primary">
                                         "{testimonialMembers[activeIndex].quote}"
                                     </blockquote>
 
                                     <div className="flex flex-col items-center">
                                         <p className="font-semibold text-gray-800">{testimonialMembers[activeIndex].name}</p>
-                                        <p className="text-sm text-gray-500 uppercase tracking-wider">
+                                        <p className="text-sm tracking-wider text-gray-500 uppercase">
                                             {testimonialMembers[activeIndex].position}
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="absolute flex justify-between transform -translate-y-1/2 left-0 right-0 top-1/2">
+                                <div className="flex absolute right-0 left-0 top-1/2 justify-between transform -translate-y-1/2">
                                     <button
                                         onClick={() =>
                                             setActiveIndex(prev => (prev === 0 ? testimonialMembers.length - 1 : prev - 1))
                                         }
-                                        className="btn btn-circle btn-sm bg-white border-none shadow-md hover:bg-gray-100 ml-2"
+                                        className="ml-2 bg-white border-none shadow-md btn btn-circle btn-sm hover:bg-gray-100"
                                     >
                                         ❮
                                     </button>
@@ -108,7 +108,7 @@ const TestimonialAndTeamSection = () => {
                                         onClick={() =>
                                             setActiveIndex(prev => (prev === testimonialMembers.length - 1 ? 0 : prev + 1))
                                         }
-                                        className="btn btn-circle btn-sm bg-white border-none shadow-md hover:bg-gray-100 mr-2"
+                                        className="mr-2 bg-white border-none shadow-md btn btn-circle btn-sm hover:bg-gray-100"
                                     >
                                         ❯
                                     </button>
@@ -120,14 +120,14 @@ const TestimonialAndTeamSection = () => {
             </div>
 
             {/* Partner Logos Marquee */}
-            <div className="w-2/3 mx-auto overflow-hidden mb-24">
-                <div className="text-xs text-center text-gray-500 uppercase tracking-wider mb-8">
+            <div className="overflow-hidden mx-auto mb-24 w-2/3">
+                <div className="mb-8 text-xs tracking-wider text-center text-gray-500 uppercase">
                     WE'RE PROUD TO PARTNER WITH MORE THAN 100 TOP HOUSING PLATFORMS
                 </div>
                 <Marquee speed={40} gradientWidth={0} pauseOnHover={true} className="py-4">
                     {partnerLogos.map((logo, index) => (
-                        <div key={index} className="flex flex-col items-center justify-center mx-8">
-                            <div className="text-3xl mb-2 text-primary">{logo.icon}</div>
+                        <div key={index} className="flex flex-col justify-center items-center mx-8">
+                            <div className="mb-2 text-3xl text-primary">{logo.icon}</div>
                             <span className="text-xs font-semibold text-gray-800">{logo.name}</span>
                         </div>
                     ))}
@@ -135,30 +135,30 @@ const TestimonialAndTeamSection = () => {
             </div>
 
             {/* Team Section */}
-            <div className="container mx-auto px-4 max-w-5xl">
-                <div className="flex items-center justify-center mb-8">
-                    <div className="w-12 h-1 bg-primary mr-3"></div>
+            <div className="container px-4 mx-auto max-w-5xl">
+                <div className="flex justify-center items-center mb-8">
+                    <div className="mr-3 w-12 h-1 bg-primary"></div>
                     <p className="text-sm font-semibold uppercase">TEAM</p>
                 </div>
 
-                <h2 className="text-3xl font-bold text-center mb-16">
+                <h2 className="mb-16 text-3xl font-bold text-center">
                     Global executive<br />leadership
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                     {teamMembers.map((member) => (
                         <div key={member.id} className="relative group">
-                            <div className="relative overflow-hidden rounded-lg shadow-lg hover:cursor-pointer">
-                                <div className="absolute top-0 right-0 w-8 h-8 bg-white rounded-bl-lg z-10 flex items-center justify-center">
+                            <div className="overflow-hidden relative rounded-lg shadow-lg hover:cursor-pointer">
+                                <div className="flex absolute top-0 right-0 z-10 justify-center items-center w-8 h-8 bg-white rounded-bl-lg">
                                     <span className="text-xs hover:scale-110"><MdArrowOutward size={25} /></span>
                                 </div>
                                 <img
                                     src={member.image}
                                     alt={member.name}
-                                    className="w-full h-96 object-cover hover:scale-105 transition duration-300"
+                                    className="object-cover w-full h-96 transition duration-300 hover:scale-105"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 p-4">
-                                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">
+                                <div className="absolute right-0 bottom-0 left-0 p-4 bg-white bg-opacity-80">
+                                    <div className="mb-1 text-xs tracking-wider text-gray-500 uppercase">
                                         {member.position}
                                     </div>
                                     <div className="font-bold text-gray-900">{member.name}</div>
