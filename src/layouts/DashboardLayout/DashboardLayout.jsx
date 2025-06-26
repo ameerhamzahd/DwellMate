@@ -18,9 +18,9 @@ const DashboardLayout = () => {
 
             <ScrollToTop></ScrollToTop>
 
-            <main className='max-w-11/12 mx-auto grid lg:grid-cols-4 gap-5 py-15'>
+            <main className='w-full max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5 flex-grow py-15 px-5 lg:px-0'>
                 <div className='lg:col-span-1'>
-                    <div className='bg-base-200 p-4 sticky overflow-y-auto rounded-xl'>
+                    <div className='bg-base-200 p-4 lg:sticky lg:top-15 lg:h-fit overflow-y-auto rounded-xl'>
                         <DashboardAside></DashboardAside>
                     </div>
                 </div>

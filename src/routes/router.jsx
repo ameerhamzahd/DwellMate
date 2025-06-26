@@ -15,6 +15,7 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import ContactUs from "../pages/ContactUs/ContactUs";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import DashboardOverview from "../pages/DashboardOverview/DashboardOverview";
+import DashboardMyListings from "../pages/DashboardMyListings/DashboardMyListings";
 
 const router = createBrowserRouter(
     [
@@ -88,13 +89,21 @@ const router = createBrowserRouter(
                 <PrivateRoute>
                     <DashboardLayout></DashboardLayout>
                 </PrivateRoute>,
-            errorElement: <NotFound></NotFound>,
             children: [
                 {
                     index: true,
                     Component: DashboardOverview,
                     // loader: () => fetch("https://dwellmate-server.vercel.app/properties/listings/availability"),
                     // hydrateFallbackElement: Loader
+                },
+                {
+                    path: "dashboard-my-listings",
+                    element:
+                        <PrivateRoute>
+                            <DashboardMyListings></DashboardMyListings>
+                        </PrivateRoute>,
+                    loader: () => fetch("https://dwellmate-server.vercel.app/properties/user/:email"),
+                    hydrateFallbackElement: Loader
                 },
             ]
         }

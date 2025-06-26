@@ -1,32 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import userAvatarDefault from '../../assets/user.png'
-import { Helmet } from 'react-helmet-async';
 
 const DashboardOverview = () => {
 
     const { user } = useContext(AuthContext);
 
     const [totalProperties, setTotalProperties] = useState([]);
-  const [myListings, setMyListings] = useState([]);
-  const [uniqueUsers, setUniqueUsers] = useState(0);
+    const [myListings, setMyListings] = useState([]);
+    const [uniqueUsers, setUniqueUsers] = useState(0);
 
-  useEffect(() => {
-    fetch("https://dwellmate-server.vercel.app/properties")
-      .then(res => res.json())
-      .then(data => {
-        setTotalProperties(data);
-        // Filter user's listings if user is logged in
-        if (user?.email) {
-          const userListings = data.filter(property => property.email === user.email);
-          setMyListings(userListings);
-        }
+    useEffect(() => {
+        fetch("https://dwellmate-server.vercel.app/properties")
+            .then(response => response.json())
+            .then(data => {
+                setTotalProperties(data);
+                // Filter user's listings if user is logged in
+                if (user?.email) {
+                    const userListings = data.filter(property => property.email === user.email);
+                    setMyListings(userListings);
+                }
 
-        const uniqueEmails = new Set(data.map(property => property.email));
-        setUniqueUsers(uniqueEmails.size);
-      })
-      .catch(error => console.error(error));
-  }, [user?.email]);
+                const uniqueEmails = new Set(data.map(property => property.email));
+                setUniqueUsers(uniqueEmails.size);
+            })
+            .catch(error => console.error(error));
+    }, [user?.email]);
 
     return (
         <div className="space-y-6">
@@ -43,7 +42,7 @@ const DashboardOverview = () => {
                     <div className="stat-value text-secondary">{myListings.length}</div>
                 </div>
                 <div className="stat bg-base-200 rounded-xl shadow">
-                    <div className="stat-title text-black font-bold">Total Users</div>
+                    <div className="stat-title text-black font-bold">Total Contributors</div>
                     <div className="stat-value text-accent">{uniqueUsers}</div>
                 </div>
             </div>

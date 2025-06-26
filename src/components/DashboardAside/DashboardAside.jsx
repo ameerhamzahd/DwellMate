@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import logo from "../../assets/logo.png"
 
 const DashboardAside = () => {
 
@@ -17,10 +18,7 @@ const DashboardAside = () => {
             user && <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
         }
         {
-            user && <li><NavLink to="/my-listings" className={navLinkStyle}>My Listings</NavLink></li>
-        }
-        {
-            user && <li><NavLink to="/dashboard" className={navLinkStyle}>Dashboard</NavLink></li>
+            user && <li><NavLink to="/dashboard/dashboard-my-listings" className={navLinkStyle}>My Listings</NavLink></li>
         }
         <li><NavLink to="/about-us" className={navLinkStyle}>About Us</NavLink></li>
         <li><NavLink to="/contact-us" className={navLinkStyle}>Contact Us</NavLink></li>
@@ -30,6 +28,9 @@ const DashboardAside = () => {
         <div>
             <div className="">
                     <ul className="menu bg-base-200 text-base-content min-h-full w-full p-4 rounded-xl lg-sticky ">
+                    <Link to="/" className="flex gap-1 items-center text-xl font-bold">
+                        <img className="scale-125 w-15" src={logo} alt="Logo" /> Dashboard
+                    </Link>
                         {/* Sidebar content here */}
                         {links}
                     </ul>
