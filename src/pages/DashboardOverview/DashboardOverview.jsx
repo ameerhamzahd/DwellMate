@@ -29,9 +29,6 @@ const DashboardOverview = () => {
 
     return (
         <div className="space-y-6">
-            <div>
-                <h1 className='text-2xl text-black font-bold'>Overview</h1>
-            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="stat bg-base-200 rounded-xl shadow">
                     <div className="stat-title text-black font-bold">Total Properties</div>
@@ -45,6 +42,10 @@ const DashboardOverview = () => {
                     <div className="stat-title text-black font-bold">Total Contributors</div>
                     <div className="stat-value text-accent">{uniqueUsers}</div>
                 </div>
+            </div>
+
+            <div>
+                <h1 className='text-2xl text-black font-bold'>Profile Overview</h1>
             </div>
 
             <div className="p-6 bg-base-200 rounded-xl shadow flex flex-col sm:flex-row items-center gap-4">
