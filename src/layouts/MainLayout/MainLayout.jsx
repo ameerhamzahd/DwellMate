@@ -10,23 +10,20 @@ const MainLayout = () => {
     const { state } = useNavigation();
 
     return (
-        <div className='bg-gradient-to-tr from white to via-violet-300'>
+        <div className='bg-gradient-to-tr via-violet-300 from white to'>
             <ScrollToTop></ScrollToTop>
 
             <header>
-                <Navbar></Navbar>
+                <Navbar />
             </header>
 
             <main>
-                {
-                    state === "loading" ? <Loader></Loader> : <Outlet></Outlet>
-                }
+                {state === "loading" ? <Loader /> : <Outlet />}
             </main>
 
             <footer>
-                <Footer></Footer>
+                <Footer />
             </footer>
-
         </div>
     );
 };

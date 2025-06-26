@@ -17,9 +17,9 @@ const Footer = () => {
         <div className='bg-violet-100'>
             <footer className="p-10 rounded footer footer-horizontal footer-center text-base-content">
                 <nav className="">
-                <div className="flex gap-1 items-center text-xl font-bold">
-                <img className="scale-125 w-15" src={logo} alt="Logo" /> DwellMate
-                </div>
+                    <Link to="/" className="flex gap-1 items-center text-xl font-bold">
+                        <img className="scale-125 w-15" src={logo} alt="Logo" /> DwellMate
+                    </Link>
                     <span className="footer-title">Legal</span>
                     <NavLink to="/terms-condition" className={navLinkStyle}>Terms & Condition</NavLink>
                 </nav>

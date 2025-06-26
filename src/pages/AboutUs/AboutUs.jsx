@@ -14,7 +14,7 @@ const AboutUs = () => {
                     <p className="text-center text-gray-500">Creating a community where modesty meets comfort</p>
                 </div>
 
-                <div className="p-10 mx-auto space-y-8 rounded-xl border border-gray-300 shadow-xl backdrop-blur-md max-w-11/12 lg:max-w-5xl bg-white/80">
+                <div className="p-10 mx-auto space-y-8 rounded-xl border border-gray-300 shadow-xl backdrop-blur-md max-w-11/12 bg-white/80">
                     <section className="space-y-4">
                         <h2 className="text-2xl font-semibold">Our Mission</h2>
                         <p>

@@ -25,6 +25,9 @@ const Navbar = () => {
         {
             user && <li><NavLink to="/my-listings" className={navLinkStyle}>My Listings</NavLink></li>
         }
+        {
+            user && <li><NavLink to="/dashboard" className={navLinkStyle}>Dashboard</NavLink></li>
+        }
         <li><NavLink to="/about-us" className={navLinkStyle}>About Us</NavLink></li>
         <li><NavLink to="/contact-us" className={navLinkStyle}>Contact Us</NavLink></li>
     </>
