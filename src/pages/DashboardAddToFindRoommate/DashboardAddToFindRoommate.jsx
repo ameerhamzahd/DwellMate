@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { FaMapMarkerAlt, FaDollarSign, FaBed, FaUser, FaInfoCircle, FaCheckCircle, FaEnvelope, FaClipboardList, FaImage } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { toast, Bounce } from 'react-toastify';
 
-const DashboardAddToFindRoomate = () => {
+const DashboardAddToFindRoommate = () => {
 
     const { user } = useContext(AuthContext);
 
@@ -160,4 +159,4 @@ const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
     );
 };
 
-export default DashboardAddToFindRoomate;
+export default DashboardAddToFindRoommate;

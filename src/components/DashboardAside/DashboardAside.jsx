@@ -12,8 +12,11 @@ const DashboardAside = () => {
         }`;
 
     const links = <>
+        {
+            user && <li><NavLink to="/dashboard" end className={navLinkStyle}>Overview</NavLink></li>
+        }
         <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
-        <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
+        <li><NavLink to="/dashboard/dashboard-browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
         {
             user && <li><NavLink to="/dashboard/dashboard-add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
         }

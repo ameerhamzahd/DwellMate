@@ -58,8 +58,8 @@ const BrowseListing = () => {
                                     defaultValue=""
                                 >
                                     <option disabled value="">Sort by price</option>
-                                    <option value="Ascending">Ascending</option>
-                                    <option value="Descending">Descending</option>
+                                    <option value="Ascending">Low to High</option>
+                                    <option value="Descending">High to Low</option>
                                 </select>
                             </div>
                         </div>
