@@ -4,7 +4,7 @@ import { FaMapMarkerAlt, FaDollarSign, FaBed, FaUser, FaInfoCircle, FaCheckCircl
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { toast, Bounce } from 'react-toastify';
 
-const AddToFindRoommate = () => {
+const DashboardAddToFindRoomate = () => {
 
     const { user } = useContext(AuthContext);
 
@@ -58,17 +58,13 @@ const AddToFindRoommate = () => {
 
     return (
         <div>
-            <Helmet>
-                <title>DwellMate | Add to Find Roommate</title>
-            </Helmet>
-            <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-r from-white to-violet-100 py-30">
+            <div className="flex flex-col justify-center items-center min-h-screen bg-white rounded-xl">
                 <div className='py-10 space-y-5 text-center px-5'>
-                    <h2 className="text-3xl font-bold">Post a Roommate Listing</h2>
-                    <span className="text-gray-500">Connecting Compatible Lifestyles Under One Roof.</span>
+                    <h2 className="text-2xl font-bold">Post a Roommate Listing</h2>
+                    <span className="font-semibold text-gray-500">Connecting Compatible Lifestyles Under One Roof.</span>
                 </div>
-                <div className="p-8 w-11/12 rounded-2xl border shadow-2xl backdrop-blur-md bg-white/10 border-white/30">
+                <div className="p-8 w-11/12 rounded-2xl border shadow-2xl backdrop-blur-md bg-white/10 border-white/30 mb-10">
                     <form onSubmit={handleSubmit} className="space-y-6">
-
                         <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
                             {/* Title */}
                             <InputField icon={<FaClipboardList />} name="title" label="Listing Title" value={formData.title} onChange={handleChange} />
@@ -139,7 +135,6 @@ const AddToFindRoommate = () => {
     );
 };
 
-// Reusable floating input
 const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
     const [focused, setFocused] = useState(false);
 
@@ -165,4 +160,4 @@ const InputField = ({ icon, name, label, value, onChange, type = 'text' }) => {
     );
 };
 
-export default AddToFindRoommate;
+export default DashboardAddToFindRoomate;

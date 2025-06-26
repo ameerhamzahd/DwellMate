@@ -16,6 +16,7 @@ import ContactUs from "../pages/ContactUs/ContactUs";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import DashboardOverview from "../pages/DashboardOverview/DashboardOverview";
 import DashboardMyListings from "../pages/DashboardMyListings/DashboardMyListings";
+import DashboardAddToFindRoomate from "../pages/DashboardAddToFindRoommate/DashboardAddToFindRoomate";
 
 const router = createBrowserRouter(
     [
@@ -104,6 +105,13 @@ const router = createBrowserRouter(
                         </PrivateRoute>,
                     loader: () => fetch("https://dwellmate-server.vercel.app/properties/user/:email"),
                     hydrateFallbackElement: Loader
+                },
+                {
+                    path: "dashboard-add-to-find-roommate",
+                    element:
+                        <PrivateRoute>
+                            <DashboardAddToFindRoomate></DashboardAddToFindRoomate>
+                        </PrivateRoute>,
                 },
             ]
         }

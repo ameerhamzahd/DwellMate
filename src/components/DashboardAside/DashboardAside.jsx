@@ -15,7 +15,7 @@ const DashboardAside = () => {
         <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
         <li><NavLink to="/browse-listing" className={navLinkStyle}>Browse Listing</NavLink></li>
         {
-            user && <li><NavLink to="/add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
+            user && <li><NavLink to="/dashboard/dashboard-add-to-find-roommate" className={navLinkStyle}>Add to Find Roommate</NavLink></li>
         }
         {
             user && <li><NavLink to="/dashboard/dashboard-my-listings" className={navLinkStyle}>My Listings</NavLink></li>
