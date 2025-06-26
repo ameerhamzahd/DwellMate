@@ -51,13 +51,12 @@ const BrowseListing = () => {
                             <th className='px-4 py-3'>Rent</th>
                             <th className='px-4 py-3'>Room Type</th>
                             <th className='px-4 py-3'>Availability</th>
-                            <th className='px-4 py-3'>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {visibleProperties.length === 0 ? (
                             <tr>
-                                <td colSpan='8' className='py-8 text-center text-gray-500'>
+                                <td colSpan='7' className='py-8 text-center text-gray-500'>
                                     No properties found.
                                 </td>
                             </tr>

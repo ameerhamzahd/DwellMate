@@ -27,13 +27,6 @@ const PropertyRow = ({ property, index }) => {
                     {availability}
                 </span>
             </td>
-            <td className='px-4 py-3'>
-                <Link to={`/properties/${_id}`}>
-                    <button className="btn btn-xs btn-outline btn-primary">
-                        <FaEye className="mr-1" /> View
-                    </button>
-                </Link>
-            </td>
         </tr>
     );
 };
